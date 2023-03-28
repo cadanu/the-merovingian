@@ -1,0 +1,29 @@
+Create tables:
+
+pragma foreign_keys=ON;
+
+create table User(
+id integer primary key autoincrement,
+name string not null,
+email string not null unique,
+city string not null
+);
+
+create table Player(
+playerId integer primary key references id(User) not null,
+gamerTag string null,
+level string not null,
+experience integer null,
+gold integer null
+);
+
+
+Add Demo Data:
+
+User:
+insert into User values(null, "Jack Sparrow", "jack@sparrow.com", "Bahamas");
+insert into User values(null, "Jose Peru", "joe@peru.com", "Lima");
+
+Player:
+insert into Player values(1, "BPCIC", "Captain", 123550, 20325);
+insert into Player values(2, "Noob", "Squire", null, null);

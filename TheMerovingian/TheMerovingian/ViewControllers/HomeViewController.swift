@@ -7,14 +7,37 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    let mainDelegate = UIApplication.shared.delegate as! AppDelegate
     
     let backgroundImageView = UIImageView()
     let avatarImageView = UIImageView()
-//    let size: CGSize! = nil
     
-    // unwind UIStoryboardSegue to here
+    //
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return mainDelegate.userArray.count
+    }
+    
+    //
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 60
+    }
+    
+    //
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let tableCell = tableView.dequeueReusableCell(withIdentifier: "cell") as? SiteCell ?? SiteCell(style: .default, reuseIdentifier: "cell")
+        
+        tableCell.primaryLabel.text = mainDelegate.userArray[indexPath.row].name
+        tableCell.secondaryLabel.text = mainDelegate.userArray[indexPath.row].email
+        tableCell.myImageView.image = UIImage(named: mainDelegate.userArray[indexPath.row].city!)
+        
+        tableCell.accessoryType = .disclosureIndicator
+        return tableCell
+        
+    }
+    
     @IBAction func unwindToHome(sender: UIStoryboardSegue) {
+        // unwind segues here
     }
     
     
@@ -22,7 +45,8 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        setAvatar(fileName: "hoodwink")
+        let randomInt = Int.random(in: 0...2)
+        setAvatar(fileName: mainDelegate.avatarArray[randomInt])
         setBackground(fileName: "gate")
     }
     
@@ -57,7 +81,7 @@ class HomeViewController: UIViewController {
     }
     
     
-    // resizes images according to the shortest defined side (sizeFactor)
+    // resizes images by shortest defined (sizeFactor) - maintain aspect ratio
     func resizeImage(_ image: UIImage, _ sizeFactor: Float) -> UIImage? {
         let newHeight: CGFloat
         let newWidth: CGFloat

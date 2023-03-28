@@ -24,6 +24,10 @@
 		F6B014CE29D0930900F7E988 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6B014CD29D0930900F7E988 /* WebKit.framework */; };
 		F6B014D129D0934100F7E988 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F6B014CF29D0932E00F7E988 /* libsqlite3.0.tbd */; };
 		F6B014D229D0934100F7E988 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F6B014D029D0932E00F7E988 /* libsqlite3.tbd */; };
+		F6B014D429D0F08A00F7E988 /* DbConnect.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B014D329D0F08A00F7E988 /* DbConnect.swift */; };
+		F6B014D629D0F7E400F7E988 /* CRUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B014D529D0F7E400F7E988 /* CRUD.swift */; };
+		F6B014D829D1076600F7E988 /* SiteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B014D729D1076500F7E988 /* SiteCell.swift */; };
+		F6E28B1529D29D3D00BC411C /* the-merovingian.db in Resources */ = {isa = PBXBuildFile; fileRef = F6E28B1429D29D3D00BC411C /* the-merovingian.db */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +50,10 @@
 		F6B014CD29D0930900F7E988 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		F6B014CF29D0932E00F7E988 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		F6B014D029D0932E00F7E988 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		F6B014D329D0F08A00F7E988 /* DbConnect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DbConnect.swift; sourceTree = "<group>"; };
+		F6B014D529D0F7E400F7E988 /* CRUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CRUD.swift; sourceTree = "<group>"; };
+		F6B014D729D1076500F7E988 /* SiteCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SiteCell.swift; path = ../../../../../learn/TablesAndSwiping/TablesAndSwiping/Classes/SiteCell.swift; sourceTree = "<group>"; };
+		F6E28B1429D29D3D00BC411C /* the-merovingian.db */ = {isa = PBXFileReference; lastKnownFileType = file; name = "the-merovingian.db"; path = "db/the-merovingian.db"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +90,7 @@
 		F6B0149729D02B7D00F7E988 /* TheMerovingian */ = {
 			isa = PBXGroup;
 			children = (
+				F6B014D929D10A6E00F7E988 /* Database */,
 				F6B014C329D02DD200F7E988 /* Assets */,
 				F6B014B129D02D7700F7E988 /* Classes */,
 				F6B014AC29D02D7700F7E988 /* Storyboards */,
@@ -103,11 +112,14 @@
 		F6B014B129D02D7700F7E988 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				F6B014D729D1076500F7E988 /* SiteCell.swift */,
 				F6B0149829D02B7D00F7E988 /* AppDelegate.swift */,
 				F6B0149A29D02B7D00F7E988 /* SceneDelegate.swift */,
 				F6B014B229D02D7700F7E988 /* Data.swift */,
 				F6B014C829D08D0800F7E988 /* User.swift */,
 				F6B014CA29D08EF100F7E988 /* Player.swift */,
+				F6B014D329D0F08A00F7E988 /* DbConnect.swift */,
+				F6B014D529D0F7E400F7E988 /* CRUD.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -141,6 +153,14 @@
 				F6B014CD29D0930900F7E988 /* WebKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F6B014D929D10A6E00F7E988 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				F6E28B1429D29D3D00BC411C /* the-merovingian.db */,
+			);
+			path = Database;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -204,6 +224,7 @@
 				F6B014BB29D02D7800F7E988 /* Main.storyboard in Resources */,
 				F6B014A229D02B8000F7E988 /* Assets.xcassets in Resources */,
 				F6B014BA29D02D7800F7E988 /* LaunchScreen.storyboard in Resources */,
+				F6E28B1529D29D3D00BC411C /* the-merovingian.db in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -216,12 +237,15 @@
 			files = (
 				F6B014CB29D08EF100F7E988 /* Player.swift in Sources */,
 				F6B014BF29D02D7800F7E988 /* ViewController.swift in Sources */,
+				F6B014D829D1076600F7E988 /* SiteCell.swift in Sources */,
 				F6B014C029D02D7800F7E988 /* FormViewController.swift in Sources */,
 				F6B014C229D02D7800F7E988 /* AboutViewController.swift in Sources */,
 				F6B014C529D046EC00F7E988 /* HomeViewController.swift in Sources */,
 				F6B0149929D02B7D00F7E988 /* AppDelegate.swift in Sources */,
+				F6B014D429D0F08A00F7E988 /* DbConnect.swift in Sources */,
 				F6B014C729D0474100F7E988 /* AvatarViewController.swift in Sources */,
 				F6B014BC29D02D7800F7E988 /* Data.swift in Sources */,
+				F6B014D629D0F7E400F7E988 /* CRUD.swift in Sources */,
 				F6B0149B29D02B7D00F7E988 /* SceneDelegate.swift in Sources */,
 				F6B014C929D08D0900F7E988 /* User.swift in Sources */,
 				F6B014C129D02D7800F7E988 /* WebViewController.swift in Sources */,

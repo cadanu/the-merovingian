@@ -9,22 +9,26 @@ import UIKit
 //import WebKit
 
 class ViewController: UIViewController {
-    @IBOutlet var imgSubscribe: UIImageView!
+    
+    @IBOutlet var imgSignUp: UIImageView!
     let backgroundImageView = UIImageView()
     
+    
+    // handle touches
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         let touch: UITouch = touches.first!
         let touchPoint: CGPoint = touch.location(in: self.view!)
         
-        let subscribeFrame: CGRect = imgSubscribe.frame
+        let subscribeFrame: CGRect = imgSignUp.frame
         
         if subscribeFrame.contains(touchPoint) {
             performSegue(withIdentifier: "HomeToSignUpSegue", sender: self)
         }
     }
     
+    
     @IBAction func unwindToSplash(sender : UIStoryboardSegue) {
-        //
+        // unwind segues to here
     }
 
     override func viewDidLoad() {

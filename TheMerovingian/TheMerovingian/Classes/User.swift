@@ -13,8 +13,7 @@ class User: NSObject {
     var email: String?
     var city: String?
     
-    func initWithData(theRow i: Int, theName n: String, theEmail e: String, theCity c: String) {
-        id = i
+    func initWithData(theName n: String, theEmail e: String, theCity c: String) {
         name = n
         email = e
         city = c
